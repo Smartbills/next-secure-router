@@ -24,8 +24,8 @@ The hook returns a boolean called `isReady`. This helps you prevent **Next.js** 
 `npm install @smartbills/next-secure-router`
 
 ### 
-```
-import { useSecureRouter, SecureRouterProps } from '@smartbills/use-secure-router';
+```js
+import { useSecureRouter, SecureRouterProps } from '@smartbills/next-secure-router';
 var isReady = useSecureRouter({ hasSecureAccess: secure, publicRoutes: ["/sign-up", /401"], fallbackRoute: "/401", });
 
 ```
@@ -56,8 +56,8 @@ var isReady = useSecureRouter({ hasSecureAccess: secure, publicRoutes: ["/sign-u
 
 
 ## Example
-```ts
-export default function App {
+```js
+export default function App() {
 	var {isLoggedIn, userloading} = validateUser();
 	    
   var isReady = useSecureRouter({ hasSecureAccess: isLoggedIn, publicRoutes: ["test"], fallbackRoute: "", });
@@ -79,7 +79,7 @@ export default function App {
 We validate access to `publicRoutes`  with `startsWith()` meaning that all the router will match everything after the route name.
 
 #### Example
-```
+```js
 var publicRoutes = ["/app"]
 // The router will match /app* as public route.
 ```
