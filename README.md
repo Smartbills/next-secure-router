@@ -1,5 +1,5 @@
-# next-secure-router
-`next-secure-router` is a simple but elegant Next.js hook to help you protect your private routes in your application with client side code.  
+![next-secure-router logo](https://repository-images.githubusercontent.com/349206173/d8181300-8836-11eb-95c4-b6421a035f99)
+Simple but elegant Next.js hook to help you protect your private routes with client side code.  
 
 ## How does it work?
 Built on top of `next/router`, `next-secure-router` looks for the current route to determine if the user has access to the private pages or not.
