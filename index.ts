@@ -16,12 +16,15 @@ export interface SecureRouterProps {
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 function routeExists(route: string, routes: string[]): boolean {
-    for (var currentRoute in routes) {
+    var found = false;
+    for (var currentRoute of routes) {
         if (route.startsWith(currentRoute)) {
-            return true;
+            found = true;
+            break;
         };
     }
-    return false;
+
+    return found;
 }
 /**
  * Hook allowing you protect access to parts of your Next.JS application.
