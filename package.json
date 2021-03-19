@@ -3,7 +3,7 @@
   "description": "Protect your Next.js private routes on the client-side with next-secure-router",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "files": [
     "dist"
   ],
