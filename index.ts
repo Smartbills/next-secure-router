@@ -17,7 +17,9 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 function routeExists(route: string, routes: string[]): boolean {
     var found = false;
+
     for (var currentRoute of routes) {
+
         if (route.startsWith(currentRoute)) {
             found = true;
             break;
@@ -32,14 +34,15 @@ function routeExists(route: string, routes: string[]): boolean {
  * @example var isReady = useSecureRouter({ hasSecureAccess: true, publicRoutes: ["/401", "/404"], fallbackRoute: "/401" });
   */
 export function useSecureRouter({ hasSecureAccess, fallbackRoute, publicRoutes }: SecureRouterProps): boolean {
-    if (!routeExists(fallbackRoute, publicRoutes)) {
-        var error = new Error("Your fallback route doesn't appear in your public routes array. Please add or select a route that is available in your public routes.");
-        error.name = "UnreachableRouteError";
-        throw error;
-    }
+
     const router = useRouter();
     const [isReady, setReady] = useState(false);
     useEffect(() => {
+        if (!routeExists(fallbackRoute, publicRoutes)) {
+            var error = new Error("Your fallback route doesn't appear in your public routes array. Please add or select a route that is available in your public routes.");
+            error.name = "UnreachableRouteError";
+            throw error;
+        }
         async function handleRoute() {
             if (!hasSecureAccess) {
                 var publicRouteExists = routeExists(router.route, publicRoutes);
